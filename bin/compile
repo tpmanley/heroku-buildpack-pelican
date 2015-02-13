@@ -26,15 +26,15 @@ $ROOT_DIR/heroku-buildpack-python/bin/compile $1 $2
 
 cd $BUILD_DIR
 
-find /app/ 
+#find /app/ 
 
-if ! [ -x "/app/.heroku/python/bin/pelican" ]; then
-  puts-step "Installing Pelican"
-  /app/.heroku/python/bin/pip install --use-mirrors pelican | indent
-
-  puts-step "Installing Markdown"
-  /app/.heroku/python/bin/pip install --use-mirrors Markdown | indent
-fi
+#if ! [ -x "/app/.heroku/python/bin/pelican" ]; then
+#  puts-step "Installing Pelican"
+#  /app/.heroku/python/bin/pip install --use-mirrors pelican | indent
+#
+#  puts-step "Installing Markdown"
+#  /app/.heroku/python/bin/pip install --use-mirrors Markdown | indent
+#fi
 
 puts-step "Running pelican"
 
