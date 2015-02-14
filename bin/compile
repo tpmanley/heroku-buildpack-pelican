@@ -36,6 +36,7 @@ test -f /app/.heroku/python/bin/pip || echo "pip"
 if ! [ -x "/app/.heroku/python/bin/pelican" ]; then
   puts-step "Installing Pelican"
   test -f /app/.heroku/python/bin/pip || echo "pip"
+  file /app/.heroku/python/bin/pip
   /app/.heroku/python/bin/pip install --use-mirrors pelican | indent
 
   puts-step "Installing Markdown"
