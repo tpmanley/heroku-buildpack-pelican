@@ -27,12 +27,9 @@ $ROOT_DIR/heroku-buildpack-python/bin/compile $1 $2
 cd $BUILD_DIR
 
 echo "Performing file tests"
-test -d /app && echo "app"
-ls -a /app
-test -d /app/.heroku && echo ".heroku"
-test -d /app/.herkou/python && echo "python"
-test -d /app/.heroku/python/bin && echo "bin"
-test -f /app/.heroku/python/bin/pip && echo "pip"
+find /app | grep pip | uniq -c
+find /app | grep pelican | uniq -c
+
 
 if ! [ -x "/app/.heroku/python/bin/pelican" ]; then
   puts-step "Installing Pelican"
