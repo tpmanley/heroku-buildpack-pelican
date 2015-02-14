@@ -28,7 +28,7 @@ cd $BUILD_DIR
 
 echo "Performing file tests"
 test -d /app && echo "app"
-ls /app
+ls -a /app
 test -d /app/.heroku && echo ".heroku"
 test -d /app/.herkou/python && echo "python"
 test -d /app/.heroku/python/bin && echo "bin"
