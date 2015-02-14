@@ -26,6 +26,7 @@ $ROOT_DIR/heroku-buildpack-python/bin/compile $1 $2
 
 cd $BUILD_DIR
 
+echo "Performing file tests"
 test -d /app || echo "app"
 test -d /app/.heroku || echo ".heroku"
 test -d /app/.herkou/python || echo "python"
@@ -34,6 +35,7 @@ test -f /app/.heroku/python/bin/pip || echo "pip"
 
 if ! [ -x "/app/.heroku/python/bin/pelican" ]; then
   puts-step "Installing Pelican"
+  test -f /app/.heroku/python/bin/pip || echo "pip"
   /app/.heroku/python/bin/pip install --use-mirrors pelican | indent
 
   puts-step "Installing Markdown"
