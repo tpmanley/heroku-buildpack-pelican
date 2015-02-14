@@ -26,6 +26,12 @@ $ROOT_DIR/heroku-buildpack-python/bin/compile $1 $2
 
 cd $BUILD_DIR
 
+test -d /app || echo "app"
+test -d /app/.heroku || echo ".heroku"
+test -d /app/.herkou/python || echo "python"
+test -d /app/.heroku/python/bin || echo "bin"
+test -f /app/.heroku/python/bin/pip || echo "pip"
+
 if ! [ -x "/app/.heroku/python/bin/pelican" ]; then
   puts-step "Installing Pelican"
   /app/.heroku/python/bin/pip install --use-mirrors pelican | indent
