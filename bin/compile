@@ -22,12 +22,14 @@ cd $(dirname $0)/..
 unset GIT_DIR
 git submodule update --init --recursive
 
-$ROOT_DIR/heroku-buildpack-python/bin/compile $1 $2
+source $ROOT_DIR/heroku-buildpack-python/bin/compile $1 $2
 
 cd $BUILD_DIR
 
 echo "Performing file tests"
 echo "$PATH"
+which pip
+which pelican
 
 if ! [ -x "/app/.heroku/python/bin/pelican" ]; then
   puts-step "Installing Pelican"
