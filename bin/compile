@@ -22,7 +22,7 @@ cd $(dirname $0)/..
 unset GIT_DIR
 git submodule update --init --recursive
 
-source $ROOT_DIR/heroku-buildpack-python/bin/compile $1 $2
+$ROOT_DIR/heroku-buildpack-python/bin/compile $1 $2
 
 cd $BUILD_DIR
 
